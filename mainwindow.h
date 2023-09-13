@@ -26,5 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    int *vetor;
+    int tamanho_vetor;
 };
 #endif // MAINWINDOW_H
