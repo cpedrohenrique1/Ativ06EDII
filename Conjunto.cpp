@@ -30,6 +30,12 @@ Conjunto::Conjunto(int **array, int &tamanho_vetor):
     }
 }
 
+Conjunto::~Conjunto(){
+    if (array_selectionsort){
+        delete[] array_selectionsort;
+    }
+}
+
 void Conjunto::selectionSort(){
     if (!array_selectionsort || tamanho_arrayselectionsort <= 0){
         throw QString("Vetor nao criado");

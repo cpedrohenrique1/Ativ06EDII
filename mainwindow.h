@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include "Conjunto.h"
 
 #include <QMainWindow>
 
@@ -28,5 +29,7 @@ private:
     Ui::MainWindow *ui;
     int *vetor;
     int tamanho_vetor;
+    Conjunto *conj;
+
 };
 #endif // MAINWINDOW_H

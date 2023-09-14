@@ -10,6 +10,7 @@ class Conjunto{
         int nmr_execucoes;
     public:
         Conjunto(int **array, int &tamanho_vetor);
+        ~Conjunto();
         void selectionSort();
         int *getArraySelectionSort() const;
         int getTamanhoArraySelectionSort() const;

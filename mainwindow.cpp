@@ -9,13 +9,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
     , vetor(0)
     , tamanho_vetor(0)
+    , conj(0)
 {
     ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
 {
-    delete vetor;
+    if (conj){
+        delete conj;
+    }
+    if (vetor){
+        delete[] vetor;
+    }
     delete ui;
 }
 
@@ -33,17 +39,17 @@ void MainWindow::on_pushButton_gerar_clicked()
             tamanho_vetor = 0;
         }
         tamanho_vetor = input_dado.toInt();
-        Conjunto conj(&vetor, tamanho_vetor);
+        conj = new Conjunto(&vetor, tamanho_vetor);
         QString saida_dados_aleatorios = "";
         QString saida_dados_ordenados = "";
 
         for (int i = 0; i < tamanho_vetor; ++i){
-            saida_dados_aleatorios = "|" + QString::number(vetor[i]) + "| ";
-            saida_dados_ordenados = "|" + QString::number(conj.getArraySelectionSort()[i]) + "| ";
+            saida_dados_aleatorios += "|" + QString::number(vetor[i]) + "| ";
+            saida_dados_ordenados += "|" + QString::number(conj->getArraySelectionSort()[i]) + "| ";
         }
         ui->textEdit_dados_aleatorios_vetor->setText(saida_dados_aleatorios);
         ui->textEdit_dados_vetor_ordenado->setText(saida_dados_ordenados);
-        ui->textEdit_saida_numero_execucoes_dados_ordenado->setText(QString::number(conj.getNmrExecucoes()));
+        ui->textEdit_saida_numero_execucoes_dados_ordenado->setText(QString::number(conj->getNmrExecucoes()));
     }catch(QString &e){
         QMessageBox::critical(this, "Erro", e);
     }
@@ -53,11 +59,12 @@ void MainWindow::on_pushButton_gerar_clicked()
 void MainWindow::on_pushButton_buscar_sequencial_clicked()
 {
     try{
-        if (vetor || tamanho_vetor > 0){
+        if (!vetor || tamanho_vetor <= 0){
             throw QString("Vetor nao existe");
         }
+        
     }catch(QString &e){
-        QMessageBox::critical(this, "Erro", e)
+        QMessageBox::critical(this, "Erro", e);
     }
 }
 
@@ -65,11 +72,11 @@ void MainWindow::on_pushButton_buscar_sequencial_clicked()
 void MainWindow::on_pushButton_buscar_sequencial_vetor_ordenado_clicked()
 {
     try{
-        if (vetor || tamanho_vetor > 0){
+        if (!vetor || tamanho_vetor <= 0){
             throw QString("Vetor nao existe");
         }
     }catch(QString &e){
-        QMessageBox::critical(this, "Erro", e)
+        QMessageBox::critical(this, "Erro", e);
     }
 }
 
@@ -77,11 +84,11 @@ void MainWindow::on_pushButton_buscar_sequencial_vetor_ordenado_clicked()
 void MainWindow::on_pushButton_busca_binaria_clicked()
 {
     try{
-        if (vetor || tamanho_vetor > 0){
+        if (!vetor || tamanho_vetor <= 0){
             throw QString("Vetor nao existe");
         }
     }catch(QString &e){
-        QMessageBox::critical(this, "Erro", e)
+        QMessageBox::critical(this, "Erro", e);
     }
 }
 
