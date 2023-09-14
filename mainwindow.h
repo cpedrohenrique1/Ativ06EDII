@@ -29,7 +29,7 @@ private:
     Ui::MainWindow *ui;
     int *vetor;
     int tamanho_vetor;
-    Conjunto *conj;
+    int *vetor_ordenado;
 
 };
 #endif // MAINWINDOW_H

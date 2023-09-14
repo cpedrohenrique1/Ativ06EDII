@@ -10,11 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     Conjunto.cpp \
+    busca.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     Conjunto.h \
+    busca.h \
     mainwindow.h
 
 FORMS += \
