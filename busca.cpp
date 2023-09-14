@@ -3,7 +3,8 @@
 
 Busca::Busca(int *array, int &tamanho_array):
     vetor(0),
-    tamanho_vetor(tamanho_array)
+    tamanho_vetor(tamanho_array),
+    contador(0)
 {
     if (tamanho_array <= 0 || !array){
         throw QString("Vetor nao criado");
@@ -31,10 +32,14 @@ int Busca::BuscaSequencial(int entrada){
     if (!vetor || tamanho_vetor <= 0){
         throw QString("Erro, vetor nao criado");
     }
+    if (contador){
+        contador = 0;
+    }
     for (int i = 0; i < tamanho_vetor; ++i){
         if (vetor[i] == entrada){
             return i;
         }
+        ++contador;
     }
     return -1;
 }
@@ -43,6 +48,9 @@ int Busca::BuscaSequencialMelhorada(int entrada){
     if (!vetor || tamanho_vetor <= 0){
         throw QString("Erro, vetor nao criado");
     }
+    if (contador){
+        contador = 0;
+    }
     for (int i = 0; i < tamanho_vetor; ++i){
         if (vetor[i] == entrada){
             return i;
@@ -50,6 +58,7 @@ int Busca::BuscaSequencialMelhorada(int entrada){
         if (vetor[i] > entrada){
             return -1;
         }
+        ++contador;
     }
     return -1;
 }
@@ -57,6 +66,9 @@ int Busca::BuscaSequencialMelhorada(int entrada){
 int Busca::BuscaBinaria(int entrada){
     if (!vetor || tamanho_vetor <= 0){
         throw QString("Erro, vetor nao criado");
+    }
+    if (contador){
+        contador = 0;
     }
     int inicio = 0;
     int fim = tamanho_vetor - 1;
@@ -70,6 +82,11 @@ int Busca::BuscaBinaria(int entrada){
         }else{
             fim = meio - 1;
         }
+        ++contador;
     }
     return -1;
+}
+
+int Busca::getContador() const{
+    return contador;
 }
