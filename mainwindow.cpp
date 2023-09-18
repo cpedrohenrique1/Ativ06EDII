@@ -83,8 +83,8 @@ void MainWindow::on_pushButton_buscar_sequencial_clicked()
             ui->textEdit_resultado_busca_sequencial->setText("Nao foi encontrado");
         }else{
             ui->textEdit_resultado_busca_sequencial->setText("Foi encontrado e esta na posicao " + QString::number(resultado));
-            ui->textEdit_saida_numero_execucoes_busca_sequencial->setText(QString::number(busca.getContador()));
         }
+        ui->textEdit_saida_numero_execucoes_busca_sequencial->setText(QString::number(busca.getContador()));
     }catch(QString &e){
         QMessageBox::critical(this, "Erro", e);
     }
@@ -106,9 +106,9 @@ void MainWindow::on_pushButton_buscar_sequencial_vetor_ordenado_clicked()
         if (resultado == -1){
             ui->textEdit_resultado_busca_sequencial_vetor_ordenado->setText("Nao foi encontrado");
         }else{
-            ui->textEdit_resultado_busca_sequencial_vetor_ordenado->setText("Foi encontrado e esta na posicao " + QString::number(resultado));
-            ui->textEdit_saida_numero_execucoes_busca_sequencial_vetor_ordenado->setText(QString::number(busca.getContador()));
+            ui->textEdit_resultado_busca_sequencial_vetor_ordenado->setText("Foi encontrado e esta na posicao " + QString::number(resultado));   
         }
+        ui->textEdit_saida_numero_execucoes_busca_sequencial_vetor_ordenado->setText(QString::number(busca.getContador()));
     }catch(QString &e){
         QMessageBox::critical(this, "Erro", e);
     }
@@ -131,8 +131,8 @@ void MainWindow::on_pushButton_busca_binaria_clicked()
             ui->textEdit_resultado_busca_binaria->setText("Nao foi encontrado");
         }else{
             ui->textEdit_resultado_busca_binaria->setText("Foi encontrado e esta na posicao " + QString::number(resultado));
-            ui->textEdit_saida_numero_execucoes_busca_binaria->setText(QString::number(busca.getContador()));
         }
+        ui->textEdit_saida_numero_execucoes_busca_binaria->setText(QString::number(busca.getContador()));
     }catch(QString &e){
         QMessageBox::critical(this, "Erro", e);
     }
