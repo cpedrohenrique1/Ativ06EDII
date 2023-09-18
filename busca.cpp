@@ -36,10 +36,10 @@ int Busca::BuscaSequencial(int entrada){
         contador = 0;
     }
     for (int i = 0; i < tamanho_vetor; ++i){
+        ++contador;
         if (vetor[i] == entrada){
             return i;
         }
-        ++contador;
     }
     return -1;
 }
@@ -52,13 +52,13 @@ int Busca::BuscaSequencialMelhorada(int entrada){
         contador = 0;
     }
     for (int i = 0; i < tamanho_vetor; ++i){
+        ++contador;
         if (vetor[i] == entrada){
             return i;
         }
         if (vetor[i] > entrada){
             return -1;
         }
-        ++contador;
     }
     return -1;
 }
@@ -73,6 +73,7 @@ int Busca::BuscaBinaria(int entrada){
     int inicio = 0;
     int fim = tamanho_vetor - 1;
     while (inicio <= fim){
+        ++contador;
         int meio = (inicio + fim)/2;
         if (vetor[meio] == entrada){
             return meio;
@@ -82,7 +83,6 @@ int Busca::BuscaBinaria(int entrada){
         }else{
             fim = meio - 1;
         }
-        ++contador;
     }
     return -1;
 }

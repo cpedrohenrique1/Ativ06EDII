@@ -42,6 +42,7 @@ void MainWindow::on_pushButton_gerar_clicked()
         if (vetor_ordenado){
             delete[] vetor_ordenado;
             vetor_ordenado = 0;
+            tamanho_vetor = 0;
         }
 
         tamanho_vetor = input_dado.toInt();
@@ -93,7 +94,7 @@ void MainWindow::on_pushButton_buscar_sequencial_clicked()
 void MainWindow::on_pushButton_buscar_sequencial_vetor_ordenado_clicked()
 {
     try{
-        if (!vetor || tamanho_vetor <= 0){
+        if (!vetor_ordenado || tamanho_vetor <= 0){
             throw QString("Vetor nao existe");
         }
         if (ui->lineEdit_busca_sequencial_vetor_ordenado->text().isNull() || ui->lineEdit_busca_sequencial_vetor_ordenado->text().isEmpty()){
@@ -117,7 +118,7 @@ void MainWindow::on_pushButton_buscar_sequencial_vetor_ordenado_clicked()
 void MainWindow::on_pushButton_busca_binaria_clicked()
 {
     try{
-        if (!vetor || tamanho_vetor <= 0){
+        if (!vetor_ordenado || tamanho_vetor <= 0){
             throw QString("Vetor nao existe");
         }
         if (ui->lineEdit_busca_binaria->text().isNull() || ui->lineEdit_busca_binaria->text().isEmpty()){
